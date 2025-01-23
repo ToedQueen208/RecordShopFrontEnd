@@ -1,0 +1,22 @@
+﻿<h3>Here is the Record you requested</h3>
+
+@code {
+
+
+    [Parameter] public Album album { get; set; } = new Album();
+
+    }
+
+<div class="container">
+    <h1> @album.albumName</h1>
+    <h2> By @album.artistName</h2>
+    <h2> Songs in Album</h2>
+    @* @foreach(var item in album.songs){ *@
+    @*     <h3>@item</h3> *@
+    @* } *@
+
+@* @for(int x = 0; x< album.songs.Count; x++){ *@
+@*     <h3>@album.songs[x]</h3> *@
+@* } *@
+
+    </div>

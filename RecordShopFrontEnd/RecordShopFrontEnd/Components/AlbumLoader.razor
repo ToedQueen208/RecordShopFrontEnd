@@ -1,0 +1,44 @@
+﻿<h3>AlbumLoader</h3>
+
+@code {
+    public List<Album> albums { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        try{
+            var http = new HttpClient();
+            Console.WriteLine("line 10");
+            var response = await http.GetFromJsonAsync<List<Album>>($"https://localhost:7236/api/Album");
+            if(response != null){
+                albums = response;
+                Console.WriteLine(albums.Count);
+            }
+
+        }
+        catch (HttpRequestException e)
+        {
+            Console.WriteLine(e.Message);
+
+        }
+
+
+    //
+    }
+
+
+    //loads from API
+    //Checks if Valid
+    //Passes to Album list?
+
+    //Loader -> RecordSummary -> RecordSummaryList
+    //
+
+}
+
+@if(albums == null)
+{
+    <h3>Loading</h3>
+}
+else 
+{
+    <AlbumSummaryList albumList="albums" />
+}

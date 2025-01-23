@@ -1,0 +1,21 @@
+﻿@using RecordShopFrontEnd.Components;
+<h3>RecordSummaryList</h3>
+
+@code {
+    [Parameter] public List<Album> albumList { get; set; }
+
+     };
+
+
+}
+
+
+
+     @foreach (Album album in albumList) 
+     {
+         <AlbumSummary Album="album" />
+       
+     }
+    
+   
+
